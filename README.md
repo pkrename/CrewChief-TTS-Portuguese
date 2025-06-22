@@ -175,7 +175,6 @@ Este projeto foi idealizado por **[@pkrename](https://github.com/pkrename)** com
 
 ## 📄 Licença
 
-<<<<<<< HEAD
 Este projeto não inclui os áudios originais do CrewChief. Apenas a estrutura textual, scripts de automação e mapeamentos estão incluídos.  
 Todos os áudios são gerados localmente via TTS.
 =======
