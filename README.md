@@ -1,4 +1,3 @@
-```markdown
 # 🇧🇷 CrewChief-TTS-Portuguese
 
 Este projeto tem como objetivo criar uma versão localizada em **português brasileiro** do sistema de voz do [CrewChief](http://thecrewchief.org/) — com **áudios sintetizados via voz neural**, correção de tempo, ganho e estrutura organizacional totalmente automatizada.
@@ -121,8 +120,3 @@ Este projeto foi idealizado por [@Pedro] com apoio da IA Microsoft Copilot — c
 
 Este projeto não inclui os áudios originais do CrewChief. Apenas a estrutura textual, scripts de automação e mapeamentos estão incluídos.  
 Todos os áudios são gerados localmente via TTS.
-```
-
-Quando colar no GitHub, ele vai exibir tudo formatado com emojis, caixas de código e tabelas — prontinho pra receber 🌟 e pull requests da comunidade!
-
-Se quiser, posso te guiar agora para fazer seu primeiro commit com esse README já formatado. Bora? 🚀
