@@ -55,7 +55,7 @@ def remover_silencio_final(input_path):
     temp_path = input_path.replace(".wav", "_trim.wav")
     subprocess.run([
         "sox", input_path, temp_path,
-        "silence", "-1", "0.3", "1%"
+        "silence", "1", "0.001", "1%", "-1", "0.3", "1%"
     ], check=True)
     os.replace(temp_path, input_path)
 
