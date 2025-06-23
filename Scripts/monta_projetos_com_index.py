@@ -51,6 +51,14 @@ def aplicar_ganho(path, ganho_db):
     subprocess.run(["sox", path, temp_path, "gain", f"+{ganho_db}"], check=True)
     os.replace(temp_path, path)
 
+def remover_silencio_final(input_path):
+    temp_path = input_path.replace(".wav", "_trim.wav")
+    subprocess.run([
+        "sox", input_path, temp_path,
+        "silence", "-1", "0.3", "1%"
+    ], check=True)
+    os.replace(temp_path, input_path)
+
 # ======================
 # 🚀 PROCESSAMENTO
 # ======================
@@ -89,6 +97,7 @@ for pasta, grupo in pastas:
             )
             acelerar_audio(wav_temp, wav_final, speed_factor)
             aplicar_ganho(wav_final, ganho_db)
+            remover_silencio_final(final_wav)
             os.remove(wav_temp)
             subtitles.append([nome_wav, texto_pt])
         except Exception as e:
