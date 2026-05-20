@@ -40,7 +40,7 @@ Foi utilizado um container baseado em CUDA + CoquiTTS para garantir isolamento d
 ```bash
 # Instale o Docker
 sudo dnf install -y dnf-plugins-core
-sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf config-manager addrepo --from-repofile=https://download.docker.com/linux/fedora/docker-ce.repo
 sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo systemctl start docker
 sudo systemctl enable docker
@@ -55,10 +55,12 @@ sudo systemctl restart docker
 <summary><strong>⚙️ Instalação dos drivers NVIDIA e suporte CUDA para Docker</strong></summary>
 
 ```bash
-sudo dnf install akmod-nvidia
-sudo dnf install xorg-x11-drv-nvidia-cuda
-sudo dnf config-manager --add-repo https://nvidia.github.io/nvidia-docker/fedora/nvidia-docker.repo
-sudo dnf install -y nvidia-docker2
+curl -s -L https://nvidia.github.io/libnvidia-container/gpgkey | \
+  sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+curl -s -L https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-container-toolkit.repo | \
+  sudo tee /etc/yum.repos.d/nvidia-container-toolkit.repo
+sudo dnf update
+sudo nvidia-ctk runtime configure --runtime=docker
 sudo systemctl restart docker
 
 # Verifique se está funcionando:
