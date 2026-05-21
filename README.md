@@ -69,58 +69,12 @@ docker run --rm --gpus all nvidia/cuda:12.3.2-base-ubuntu22.04 nvidia-smi
 
 </details>
 <Strong>Baixar do github</Strong>
-```bash
-git clone https://github.com/pkrename/CrewChief-TTS-Portuguese.git
-cd CrewChief-TTS-Portuguese
-```
-<details>
-<summary><strong>📦 Dockerfile utilizado</strong></summary>
-
-```Dockerfile
-FROM nvidia/cuda:12.3.2-runtime-ubuntu22.04
-
-ENV DEBIAN_FRONTEND=noninteractive
-
-RUN apt-get update && apt-get install -y \
-    python3 \
-    python3-pip \
-    git \
-    ffmpeg \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN pip install --upgrade pip
-RUN pip install TTS
-
-WORKDIR /workspace
-ENTRYPOINT ["bash"]
-```
-</details>
-
-<details>
-<summary><strong>🧩 docker-compose.yml</strong></summary>
-
-```yaml
-version: '3.9'
-services:
-  coqui-tts:
-    build: .
-    container_name: coqui-tts
-    volumes:
-      - ./workspace:/workspace
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities: [gpu]
-    stdin_open: true
-    tty: true
-```
-
-</details>
 
 Use:
 
 ```bash
+git clone https://github.com/pkrename/CrewChief-TTS-Portuguese.git
+cd CrewChief-TTS-Portuguese
 docker compose up --build -d
 docker exec -it coqui-tts bash
 ```
