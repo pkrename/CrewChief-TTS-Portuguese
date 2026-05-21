@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  coqui-tts:
+    build: .
+    container_name: coqui-tts
+    volumes:
+      - ./workspace:/workspace
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    stdin_open: true
+    tty: true
