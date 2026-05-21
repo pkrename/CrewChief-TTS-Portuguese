@@ -68,10 +68,10 @@ docker run --rm --gpus all nvidia/cuda:12.3.2-base-ubuntu22.04 nvidia-smi
 ```
 
 </details>
-
-<details>
-<strong> git clone https://github.com/pkrename/CrewChief-TTS-Portuguese.git
+```bash git clone https://github.com/pkrename/CrewChief-TTS-Portuguese.git
 cd CrewChief-TTS-Portuguese
+```
+<details>
 <summary><strong>📦 Dockerfile utilizado</strong></summary>
 
 ```Dockerfile
