@@ -5,14 +5,18 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
+    python3-dev \
+    build-essential \
     git \
     ffmpeg \
+    libsndfile1 \
+    sox \
+    libsox-fmt-all \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
-RUN pip install --upgrade pip
+RUN python3 -m pip install --upgrade "pip<24.1"
 RUN pip install -r requirements.txt
-RUN pip install TTS
 
 WORKDIR /workspace
 ENTRYPOINT ["bash"]
